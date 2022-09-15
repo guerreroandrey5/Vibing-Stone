@@ -1,4 +1,5 @@
 const { getVoiceConnection } = require("@discordjs/voice");
+const { ApplicationCommandOptionType } = require("discord.js")
 module.exports = {
     name: "seek",
     description: "Seeks to a specific Position (sec)",
@@ -6,7 +7,7 @@ module.exports = {
         {
             name: "position",
             description: "To what Time in Seconds you want to seek?",
-            type: "INTEGER",
+            type: ApplicationCommandOptionType.Integer,
             required: true,
         },
     ],

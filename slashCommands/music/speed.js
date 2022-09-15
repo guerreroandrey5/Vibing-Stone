@@ -1,4 +1,5 @@
 const { getVoiceConnection } = require("@discordjs/voice");
+const { ApplicationCommandOptionType } = require("discord.js")
 module.exports = {
     name: "speed",
     description: "Changes the Speed of the Music",
@@ -6,7 +7,7 @@ module.exports = {
         {
             name: "playback_speed",
             description: "Speed % between 50 and 300 (100 = normal)",
-            type: "INTEGER",
+            type: ApplicationCommandOptionType.Integer,
             required: true,
         },
     ],

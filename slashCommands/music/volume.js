@@ -1,4 +1,5 @@
 const { getVoiceConnection } = require("@discordjs/voice");
+const { ApplicationCommandOptionType } = require("discord.js")
 module.exports = {
     name: "volume",
     description: "Changes the Volume of the Music",
@@ -6,7 +7,7 @@ module.exports = {
         {
             name: "volume",
             description: "Then Volume you want to set",
-            type: "INTEGER",
+            type: ApplicationCommandOptionType.Integer,
             required: true,
         },
     ],

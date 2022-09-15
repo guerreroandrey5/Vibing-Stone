@@ -1,4 +1,5 @@
-const { getVoiceConnection } = require("@discordjs/voice");
+const { getVoiceConnection} = require("@discordjs/voice");
+const { ApplicationCommandOptionType } = require("discord.js")
 module.exports = {
     name: "bassboost",
     args: ["bass", "bb"],
@@ -7,7 +8,7 @@ module.exports = {
         {
             name: "gain_level",
             description: "Bassboost level between 0 and 20",
-            type: "INTEGER",
+            type: ApplicationCommandOptionType.Integer,
             required: true,
         },
     ],

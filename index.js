@@ -1,4 +1,4 @@
-const { Client, Intents, Collection, MessageEmbed } = require('discord.js'); //v13
+const { Client, GatewayIntentBits, Collection, MessageEmbed } = require('discord.js'); //v13
 const { getVoiceConnection } = require("@discordjs/voice");
 
 const client = new Client(clientSettingsObject());
@@ -32,10 +32,10 @@ function clientSettingsObject() {
     },
     failIfNotExists: false,
     partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
-    intents: [ 
-        Intents.GatewayIntentBits.Guilds,
-        Intents.GatewayIntentBits.GuildMessages,
-        Intents.GatewayIntentBits.GuildVoiceStates
-    ]
+    intents: [
+      GatewayIntentBits.Guilds,
+      GatewayIntentBits.GuildMessages,
+      GatewayIntentBits.GuildVoiceStates,
+    ],
 }
 }

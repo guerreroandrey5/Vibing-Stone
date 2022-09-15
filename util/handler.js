@@ -58,12 +58,12 @@ module.exports = async (client) => {
         console.log('=== uncaught Exception ===\n\n\n\n\n'.toUpperCase());
     })
     process.on('uncaughtExceptionMonitor', (err, origin) => {
-    console.log('=== uncaught Exception Monitor ==='.toUpperCase());
+        console.log('=== uncaught Exception Monitor ==='.toUpperCase());
     });
     process.on('multipleResolves', (type, promise, reason) => {
-    /* console.log('\n\n\n\n\n=== multiple Resolves ==='.toUpperCase());
-    console.log(type, promise, reason);
-    console.log('=== multiple Resolves ===\n\n\n\n\n'.toUpperCase());
-    */
+        console.log('\n\n\n\n\n=== multiple Resolves ==='.toUpperCase());
+        console.log(type, promise, reason);
+        console.log('=== multiple Resolves ===\n\n\n\n\n'.toUpperCase());
+    
     });
 };

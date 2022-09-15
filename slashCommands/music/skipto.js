@@ -1,4 +1,5 @@
 const { getVoiceConnection } = require("@discordjs/voice");
+const { ApplicationCommandOptionType } = require("discord.js")
 module.exports = {
     name: "skipto",
     description: "Skips to a specific Track in the Queue",
@@ -6,7 +7,7 @@ module.exports = {
         {
             name: "position",
             description: "To what track you want to skip?",
-            type: "INTEGER",
+            type: ApplicationCommandOptionType.Integer,
             required: true,
         },
     ],

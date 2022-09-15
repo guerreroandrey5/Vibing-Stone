@@ -1,6 +1,7 @@
 const { getVoiceConnection } = require("@discordjs/voice");
 const { default: YouTube } = require('youtube-sr');
 const { Permissions } = require("discord.js");
+const { ApplicationCommandOptionType } = require("discord.js")
 module.exports = {
     name: "playskip",
     description: "Plays Music in your Voice Channel and skips to it",
@@ -8,7 +9,7 @@ module.exports = {
         {
             name: "songtitle",
             description: "Title/Link of the Song/Playlist",
-            type: "STRING",
+            type: ApplicationCommandOptionType.String,
             required: true,
         },
     ],

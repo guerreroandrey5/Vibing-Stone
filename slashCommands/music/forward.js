@@ -1,4 +1,5 @@
 const { getVoiceConnection } = require("@discordjs/voice");
+const { ApplicationCommandOptionType } = require("discord.js")
 module.exports = {
     name: "forward",
     description: "Forwards for X (secs)",
@@ -6,7 +7,7 @@ module.exports = {
         {
             name: "time",
             description: "For how many seconds do you want to forward?",
-            type: "INTEGER",
+            type: ApplicationCommandOptionType.Integer,
             required: true,
         },
     ],

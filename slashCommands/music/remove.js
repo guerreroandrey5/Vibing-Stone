@@ -1,4 +1,5 @@
 const { getVoiceConnection } = require("@discordjs/voice");
+const { ApplicationCommandOptionType } = require("discord.js")
 module.exports = {
     name: "remove",
     description: "Removes a specific Track from the Queue",
@@ -6,7 +7,7 @@ module.exports = {
         {
             name: "position",
             description: "Song Position to remove",
-            type: "INTEGER",
+            type: ApplicationCommandOptionType.Integer,
             required: true,
         },
     ],

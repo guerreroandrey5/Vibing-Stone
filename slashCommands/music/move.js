@@ -1,4 +1,5 @@
 const { getVoiceConnection } = require("@discordjs/voice");
+const { ApplicationCommandOptionType } = require("discord.js")
 module.exports = {
     name: "move",
     description: "Moves a Song in the Queue",
@@ -6,13 +7,13 @@ module.exports = {
         {
             name: "from",
             description: "From Position to move",
-            type: "INTEGER",
+            type: ApplicationCommandOptionType.Integer,
             required: true,
         },
         {
             name: "to",
             description: "New Position to move it to",
-            type: "INTEGER",
+            type: ApplicationCommandOptionType.Integer,
             required: true,
         },
     ],
