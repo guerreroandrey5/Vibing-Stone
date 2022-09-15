@@ -2,14 +2,8 @@ const { Client, Collection, MessageEmbed } = require('discord.js'); //v13
 const Discord = require('discord.js');
 const { getVoiceConnection } = require("@discordjs/voice");
 
-//const client = new Client(clientSettingsObject());
-const client = new Discord.client({
-  intents: [
-      Discord.GatewayIntentBits.Guilds,
-      Discord.GatewayIntentBits.GuildMessages,
-      Discord.GatewayIntentBits.GuildVoiceStates
-    ]
-})
+const client = new Client(clientSettingsObject());
+
 // Slash Commands deployment settings
 client.deploySlash = {
   enabled: true,
