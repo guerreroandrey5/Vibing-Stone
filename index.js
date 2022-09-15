@@ -1,7 +1,15 @@
-const { Client, Intents, Collection, MessageEmbed } = require('discord.js'); //v13
+const { Client, Collection, MessageEmbed } = require('discord.js'); //v13
+const Discord = require('discord.js');
 const { getVoiceConnection } = require("@discordjs/voice");
 
-const client = new Client(clientSettingsObject());
+//const client = new Client(clientSettingsObject());
+const client = new Discord.client({
+  intents: [
+      Discord.GatewayIntentBits.Guilds,
+      Discord.GatewayIntentBits.GuildMessages,
+      Discord.GatewayIntentBits.GuildVoiceStates
+    ]
+})
 // Slash Commands deployment settings
 client.deploySlash = {
   enabled: true,
@@ -33,9 +41,9 @@ function clientSettingsObject() {
     failIfNotExists: false,
     partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
     intents: [ 
-        Intents.FLAGS.GUILDS,
-        Intents.FLAGS.GUILD_MESSAGES,
-        Intents.FLAGS.GUILD_VOICE_STATES
+      Discord.GatewayIntentBits.Guilds,
+      Discord.GatewayIntentBits.GuildMessages,
+      Discord.GatewayIntentBits.GuildVoiceStates
     ]
 }
 }
