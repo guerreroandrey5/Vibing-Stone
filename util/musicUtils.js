@@ -92,7 +92,7 @@ module.exports = client => {
     client.getResource = (queue, songInfoId, seekTime = 0) => {
         let Qargs = "";
         let effects = queue?.effects || { 
-            bassboost: 4,
+            bassboost: 0,
             speed: 1,
         }
         if(effects.normalizer) Qargs += `,dynaudnorm=f=200`;
@@ -111,9 +111,9 @@ module.exports = client => {
         if(effects.nightcore) Qargs += `,aresample=48000,asetrate=48000*1.5`
         if(effects.phaser) Qargs += `,aphaser=in_gain=0.4`
         if(effects.tremolo) Qargs += `,tremolo`
-        if(effects.vibrato) Qargs += `,vibrato=f=6.5`
+        if(effects.vibrato) Qargs += `,vibrato=f=0`
         if(effects.reverse) Qargs += `,areverse`
-        if(effects.treble) Qargs += `,treble=g=5`
+        if(effects.treble) Qargs += `,treble=g=0`
         if(Qargs.startsWith(",")) Qargs = Qargs.substring(1)
         const requestOpts = {
             filter: "audioonly",
@@ -122,9 +122,9 @@ module.exports = client => {
             liveBuffer: 1 << 62,
             dlChunkSize: 0,
             seek: Math.floor(seekTime / 1000),
-            bitrate: queue?.bitrate || 128,
-            quality: "lowestaudio",
-            encoderArgs: Qargs ? ["-af", Qargs ] : ['-af', 'bass=g=6,dynaudnorm=f=200'] // queue.filters
+            bitrate: queue?.bitrate || 320,
+            quality: "highestaudio",
+            encoderArgs: Qargs ? ["-af", Qargs ] : ['-af', 'bass=g=0,dynaudnorm=f=200'] // queue.filters
         };
         if(client.config.YOUTUBE_LOGIN_COOKIE && client.config.YOUTUBE_LOGIN_COOKIE.length > 10) {
             requestOpts.requestOptions = {
@@ -236,7 +236,7 @@ module.exports = client => {
         if(!textChannel) return
         const song = queue.tracks[0];
         
-        const songEmbed = new Discord.MessageEmbed().setColor("FUCHSIA")
+        const songEmbed = new Discord.MessageEmbed().setColor("PURPLE")
             .setTitle(`${song.title}`)
             .setURL(client.getYTLink(song.id))
             .addField(`**Duration:**`, `> \`${song.durationFormatted}\``, true)
@@ -263,13 +263,13 @@ module.exports = client => {
         return `${length}${str[length % 10] ? str[length % 10] : "th"}`
     }
 
-    client.createQueue = (song, user, channelId, bitrate = 128) => {
+    client.createQueue = (song, user, channelId, bitrate = 320) => {
         return {
             textChannel: channelId,
             paused: false,
             skipped: false,
             effects: {
-                bassboost: 6,
+                bassboost: 0,
                 subboost: false,
                 mcompand: false,
                 haas: false,
