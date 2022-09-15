@@ -32,10 +32,10 @@ function clientSettingsObject() {
     },
     failIfNotExists: false,
     partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
-    intents: [ 
+    /*intents: [ 
         Intents.FLAGS.GUILDS,
         Intents.FLAGS.GUILD_MESSAGES,
         Intents.FLAGS.GUILD_VOICE_STATES
-    ]
+    ]*/
 }
 }
