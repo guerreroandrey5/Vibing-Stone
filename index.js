@@ -33,9 +33,9 @@ function clientSettingsObject() {
     failIfNotExists: false,
     partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
     intents: [ 
-        Intents.FLAGS.GUILDS,
-        Intents.FLAGS.GUILD_MESSAGES,
-        Intents.FLAGS.GUILD_VOICE_STATES
+        Intents.GatewayIntentBits.Guilds,
+        Intents.GatewayIntentBits.GuildMessages,
+        Intents.GatewayIntentBits.GuildVoiceStates
     ]
 }
 }
