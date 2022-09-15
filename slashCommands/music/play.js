@@ -1,6 +1,6 @@
 const { getVoiceConnection } = require("@discordjs/voice");
 const { default: YouTube } = require('youtube-sr');
-const { Permissions } = require("discord.js");
+const { PermissionsBitField } = require("discord.js");
 const { ApplicationCommandOptionType } = require("discord.js")
 module.exports = {
     name: "play",
@@ -15,10 +15,10 @@ module.exports = {
     ],
     run: async (client, interaction, args, prefix) => {
         if(!interaction.member.voice.channelId) return interaction.reply({ ephemeral: true, content:"👎 **Please join a Voice-Channel first!**"}).catch(() => null);
-        if(!interaction.member.voice.channel?.permissionsFor(interaction.guild?.me)?.has(Permissions.FLAGS.CONNECT)) {
+        if(!interaction.member.voice.channel?.permissionsFor(interaction.guild?.me)?.has(PermissionsBitField.FLAGS.CONNECT)) {
             return interaction.reply({ephemeral: true, content: "👎 **I'm missing the Permission to Connect to your Voice-Channel!**"}).catch(() => null);
         }
-        if(!interaction.member.voice.channel?.permissionsFor(interaction.guild?.me)?.has(Permissions.FLAGS.SPEAK)) {
+        if(!interaction.member.voice.channel?.permissionsFor(interaction.guild?.me)?.has(PermissionsBitField.FLAGS.SPEAK)) {
             return interaction.reply({ephemeral: true, content: "👎 **I'm missing the Permission to Speak in your Voice-Channel!**"}).catch(() => null);
         }
          
